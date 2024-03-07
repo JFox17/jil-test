@@ -1,0 +1,52 @@
+@use '@/assets/style/_variables' as *;
+
+%normal {
+    font-size: 14px;
+    line-height: 1.2em;
+    @media(max-width: $screen-xs) {
+        font-size: 3.94vw;
+    }
+    @media(min-width: $screen-xl-min) {
+        font-size: 0.97vw;
+    }
+}
+
+%normal-bold {
+    @extend %normal;
+    font-weight: 600;
+}
+
+%medium {
+    font-size: 16px;
+    line-height: 1.2em;
+    @media(max-width: $screen-xs) {
+        font-size: 4.51vw;
+    }
+    @media(min-width: $screen-xl-min) {
+        font-size: 1.11vw;
+    }
+}
+
+%medium-bold {
+    font-size: 16px;
+    line-height: 1.4em;
+    font-weight: 600;
+    @media(max-width: $screen-xs) {
+        font-size: 4.51vw;
+    }
+    @media(min-width: $screen-xl-min) {
+        font-size: 1.11vw;
+    }
+}
+
+%large-bold {
+    font-size: 32px;
+    line-height: 1.2em;
+    font-weight: 700;
+    @media(max-width: $screen-xs) {
+        font-size: 9.01vw;
+    }
+    @media(min-width: $screen-xl-min) {
+        font-size: 2.22vw;
+    }
+}

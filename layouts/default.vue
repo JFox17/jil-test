@@ -1,11 +1,6 @@
 <template>
     <div>
-       <p>ghgk</p>
+      <Nuxt />
     </div>
   </template>
-
-<style lang="scss">
-p {
-    background-color: red;
-}
-</style>
+  

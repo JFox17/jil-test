@@ -1,0 +1,24 @@
+//color
+$white: #FFFFFF;
+$black: #000000;
+$red: #E31F24;
+$grey: #FDFDFD;
+$light-grey: #E9ECEF;
+$border-grey: #E0E0E0;
+//BreakPoints
+$screen-xs: 355px;
+$screen-s: 550px;
+$screen-sm: 767px;
+$screen-m: 1028px;
+$screen-l: 1280px;
+$screen-xl: 1440px;
+
+$screen-xs-min: calc($screen-xs + 1px);
+$screen-s-min: calc($screen-s + 1px);
+$screen-sm-min: calc($screen-sm + 1px);
+$screen-m-min: calc($screen-m + 1px);
+$screen-l-min: calc($screen-l + 1px);
+$screen-xl-min: calc($screen-xl + 1px);
+
+// fonts 
+$font-main: 'Montserrat', sans-serif;

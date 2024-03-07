@@ -1,0 +1,28 @@
+@use '@/assets/style/_variables' as *;
+%input-base {
+    border: 1.5px solid;
+    border-radius: 8px;
+    padding: 14px 15px 12px;
+    transition: 0.5s;
+    @media (min-width: $screen-xl-min) {
+        border-width: 0.1vw;
+        border-radius: 0.56vw;
+        padding: 0.97vw 1.04vw 0.83vw;
+    }
+}
+%input-grey {
+    @extend %input-base;
+    border-color: $light-grey;
+    &:focus-visible,
+    &:hover {
+        border-color: $black;
+    }
+}
+%input-red {
+    @extend %input-base;
+    border-color: $red;
+    &:focus-visible,
+    &:hover {
+        border-color: $red;
+    }
+}
