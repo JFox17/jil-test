@@ -80,24 +80,17 @@ export default {
       }
     },
     methods: {
+        /**
+         * filter and get persons
+         */
         async searchUser() {
             if (!this.invalid) {
                 //filter
-                const users = this.users.trim().replace(/\s/g, '')
+                const users = this.users.trim().replace(/,*$/, '').replace(/\s/g, '')
                 const arrUsers = users.split(/\,/)
 
                 //create params
-                const regNumber = /\d+/
-                const regString = /^[a-zA-Z0-9]*$/
-                const params = arrUsers.reduce((acc, it, index) => {
-                    const union = index === 0 ? '' : '&'
-                    if (regNumber.test(it)) {
-                        acc = acc + union + `id=${it}`
-                    } else if (regString.test(it)) {
-                        acc = acc + union + `username=${it}`
-                    }
-                    return acc
-                }, '?')
+                const params = this.createParams( arrUsers )
 
                 // get Persons 
                 this.loading = true
@@ -105,6 +98,26 @@ export default {
                 this.loading = false
             }
         },
+        /**
+         * create params for request
+         * @param { Array } arrUsers  user's array
+         */
+        createParams( arrUsers ) {
+            const regNumber = /\d+/
+            const regString = /^[a-zA-Z0-9]*$/
+            return arrUsers.reduce((acc, it, index) => {
+                const union = index === 0 ? '' : '&'
+                if (regNumber.test(it)) {
+                    acc = acc + union + `id=${it}`
+                } else if (regString.test(it)) {
+                    acc = acc + union + `username=${it}`
+                }
+                return acc
+            }, '?')
+        },
+        /**
+         * validate input for request
+         */
         validteInput() {
             this.invalid = /([.$?*|{}()[\]+^])/g.test(this.users)
         }
@@ -117,7 +130,7 @@ export default {
 
 .sidebar {
   background: $grey;
-  padding: 27px 30px 27px 19px;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   gap: 29px 0;
@@ -203,6 +216,42 @@ export default {
             background: $border-grey;
         }
         
+    }
+  }
+  @media(min-width: $screen-s-min) {
+    padding: 27px 30px 27px 19px;
+  }
+
+  @media(min-width: $screen-xl-min) {
+    padding: 1.88vw 2.08vw 1.88vw 1.32vw;
+    gap: 2.01vw 0;
+
+    &__block {
+        gap: 0.97vw 0;
+        &--error {
+            bottom: -1.39vw;
+        }
+        &--loading {
+            width: 3.33vw;
+            height: 3.33vw;
+            border: 0.35vw solid $black;
+        }
+    }
+
+    &__cards {
+        gap: 1.25vw 0;
+    }
+
+    &__card {
+        border-radius: 0.69vw;
+        box-shadow: 0px 0px 0.69vw 0px #0000001A;
+        height: 4.86vw;
+        &--img {
+            border-right: 0.07vw solid $border-grey;
+        }
+        &--text {
+            padding: 1.04vw;
+        }
     }
   }
 }
