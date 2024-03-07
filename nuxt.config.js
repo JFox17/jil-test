@@ -37,7 +37,7 @@ export default {
   modules: ['@nuxtjs/axios'],
 
   axios: {
-    baseURL: 'https://jsonplaceholder.typicode.com'
+    baseURL: process.env.WEB_HOST
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
