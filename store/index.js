@@ -20,10 +20,10 @@ export const mutations = {
 export const actions = {
     getPersons ({ dispatch, commit, state }, params) {
         return this.$axios.$get('/users' + params).then((res) => {
-          commit('setPersons', res)
           
           if(res.length) {
             dispatch('getActivePerson', res[0].id)
+            commit('setPersons', res)
           } else {
             commit('setActivePersonDefault')
           }

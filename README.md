@@ -1,5 +1,9 @@
 # jil-spa
 
+## Node version
+
+nvm use 20.3.1
+
 ## Build Setup
 
 ```bash
