@@ -1,0 +1,24 @@
+.loading-enter-active {
+    transition: all .3s ease;
+    transition-delay: 1s;
+}
+.loading-leave-active {
+  transition: all .4s;
+}
+.loading-enter, .loading-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 0.5s;
+}
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}

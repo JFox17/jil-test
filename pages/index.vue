@@ -10,16 +10,21 @@
         </p>
       </div>
     </div>
-    <SideBar />
+    <div :class="$style.search__content">
+      <SideBar />
+      <Card />
+    </div>
   </div>
 </template>
 
 <script>
+import Card from '@/components/Card.vue'
 import SideBar from '@/components/SideBar.vue';
+
 export default {
   name: 'IndexPage',
   components: {
-    SideBar
+    Card, SideBar
   },
   computed: {
       activePerson () {
@@ -34,10 +39,13 @@ export default {
 
 .container {
   background: $white;
-  padding: 50px;
+  padding: 30px 10px;
   display: flex;
   flex-direction: column;
   gap: 25px 0;
+  @media (min-width: $screen-s-min) {
+    padding: 50px;
+  }
   @media (min-width: $screen-xl-min) {
     padding: 3.47vw;
     gap: 1.74vw 0;
@@ -59,6 +67,15 @@ export default {
       }
       &--name {
           @extend %medium;
+      }
+    }
+    &__content {
+      background: $grey;
+      box-shadow: 0px 0px 10px 0px #0000001A;
+      border-radius: 10px;
+      min-height: 80vh;
+      @media(min-width: $screen-sm-min) {
+        display: flex;
       }
     }
 }

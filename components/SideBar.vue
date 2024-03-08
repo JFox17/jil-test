@@ -49,7 +49,7 @@
                         @click="$store.dispatch('getActivePerson', item.id)"
                     >
                         <div :class="$style['sidebar__card--img']">
-                            <img src="@/assets/image/img.svg" />
+                            <img src="@/assets/image/img.png" />
                         </div>
                         <div :class="$style['sidebar__card--text']">
                             <p>{{ item.name }}</p>
@@ -129,8 +129,7 @@ export default {
 @use '~/assets/style/extends' as *;
 
 .sidebar {
-  background: $grey;
-  padding: 20px 0;
+  padding: 20px 10px;
   display: flex;
   flex-direction: column;
   gap: 29px 0;
@@ -140,6 +139,8 @@ export default {
     flex-direction: column;
     position: relative;
     gap: 14px 0;
+    max-width: 250px;
+    width: 100%;
 
     &--label {
         @extend %medium-bold;
@@ -222,12 +223,22 @@ export default {
     padding: 27px 30px 27px 19px;
   }
 
+  @media(min-width: $screen-sm-min) {
+    border-right: 1px solid $border-grey;
+    &__block {
+        width: 240px;
+    }
+  }
+
   @media(min-width: $screen-xl-min) {
     padding: 1.88vw 2.08vw 1.88vw 1.32vw;
     gap: 2.01vw 0;
+    border-right: 0.07vw solid $border-grey;
 
     &__block {
         gap: 0.97vw 0;
+        max-width: 16.67vw;
+        width: 16.67vw;
         &--error {
             bottom: -1.39vw;
         }
@@ -265,29 +276,6 @@ export default {
     }
 } 
 </style>
-<style lang="scss">
-.loading-enter-active {
-    transition: all .3s ease;
-    transition-delay: 1s;
-}
-.loading-leave-active {
-  transition: all .4s;
-}
-.loading-enter, .loading-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
-}
-
-
-.list-item {
-  display: inline-block;
-  margin-right: 10px;
-}
-.list-enter-active, .list-leave-active {
-  transition: all 0.5s;
-}
-.list-enter, .list-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
-}
+<style scoped lang="scss">
+@use '@/assets/style/modules/Transition.module.scss';
 </style>
